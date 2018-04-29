@@ -2,19 +2,21 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
+import Footer from '../components/footer'
 import Header from '../components/header'
 import './index.css'
 
 const Layout = ({ children, data }) => (
   <div>
     <Helmet
-      title={data.site.siteMetadata.title}
+      title={data.site.siteMetadata.title + data.site.siteMetadata.version}
       meta={[
         { name: 'description', content: 'Sample' },
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    <Header siteTitle={data.site.siteMetadata.title} />
+    <Header siteTitle={data.site.siteMetadata.title} 
+            version={data.site.siteMetadata.version} />
     <div
       style={{
         margin: '0 auto',
@@ -25,6 +27,7 @@ const Layout = ({ children, data }) => (
     >
       {children()}
     </div>
+    <Footer />
   </div>
 )
 
@@ -39,6 +42,7 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+        version
       }
     }
   }
