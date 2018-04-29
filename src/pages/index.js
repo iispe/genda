@@ -1,12 +1,17 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Agenda from '../components/agenda'
 
 const IndexPage = () => (
   <div>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
+    <Agenda 
+      number="1"
+      item="First item"
+    />
+    <Agenda
+      number="2"
+      item="Second item"
+    />
   </div>
 )
 
